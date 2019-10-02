@@ -11,17 +11,16 @@ module.exports = {
         // if not salt and hash password
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
-        // Store the new rider in the DB
-        const riderId = await db.add_rider({username, email, firstName, lastName, profilePic})
-        db.add_hash({rider_id: riderId[0].rider_id, hash}).catch(err => {
-            return res.sendStatus(503)
-        })
+        // Add the new rider in the DB
+        const newRider = await db.add_rider({username, email, firstName, lastName, profilePic, password, hash})
+
         // Store new rider on session
-        req.session.user = {
+        req.session.rider = {
             username,
             email,
-            name, 
-            riderId: riderId[0].riderId
+            firstName,
+            lastName, 
+            id: newRider[0].id
         }
         // Send session to the front end
         res.status(200).send({message:`You're all logged in`, rider: req.session.rider, loggedIn: true})
@@ -34,9 +33,14 @@ module.exports = {
         if (!rider[0]) return res.status.send({message: `Can't find your username`})
         const result = bcrypt.compareSync(password, rider[0].hash)
         if(!result) return res.status(200).send({message: `Password ain't right bro. Try again`})
-        const {username, rider_id: riderId} = rider[0]
-        req.session.rider = {email, firstName, lastName, riderId, username}
+        // const {rider_id: riderId} = rider[0]
+        req.session.rider = {username, password}
 
-        res.status(200).send({message: `You're all logged in`, rider: res.session.rider, loggedIn: true})
+        res.status(200).send({message: `You're all logged in`, rider: req.session.rider, loggedIn: true})
+    },
+
+    logout(req,res) {
+        req.session.destroy()
+        res.status(200).send({message:'Peace out bro', loggedIn: false})
     }
 }
