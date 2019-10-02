@@ -30,7 +30,7 @@ module.exports = {
         const db = req.app.get('db')
         const {username, password} = req.body
         const rider = await db.find_rider(username)
-        if (!rider[0]) return res.status.send({message: `Can't find your username`})
+        if (!rider[0]) return res.status(200).send({message: `Can't find your username`})
         const result = bcrypt.compareSync(password, rider[0].hash)
         if(!result) return res.status(200).send({message: `Password ain't right bro. Try again`})
         // const {rider_id: riderId} = rider[0]

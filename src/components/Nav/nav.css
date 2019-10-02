@@ -1,0 +1,21 @@
+.column-parent {
+    display: flex;
+    height: 100vh;
+}
+.top-links {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    /* font-size: 100%; */
+    /* vertical-align: baseline; */
+    width: 100px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    color: #fff;
+    background-image: linear-gradient(40deg,#f33e3e,#171beb);
+    box-shadow: 10px 0 20px 0 rgba(0,0,0,.1),5px 0 5px rgba(0,0,0,.2);
+}
