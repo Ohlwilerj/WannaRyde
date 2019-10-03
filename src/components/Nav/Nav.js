@@ -11,7 +11,7 @@ class Nav extends Component {
         return (
             <div className="column-parent">
                 <div className="top-links">
-                    <Link to='/profile'>
+                    <Link className="profile" to='/profile'>
                         <img src={this.props.profilePic} alt=""/>
                     </Link>
                     <h4 className="username">{this.props.username}Username</h4>
@@ -20,7 +20,7 @@ class Nav extends Component {
                     </Link>
                 <div className="logout-button">
                     <Link className="link" to="/">
-                        <button className='logout-button1'>logout</button>
+                        <i className="fas fa-sign-out-alt"></i>
                     </Link>
                 </div>
                 </div>

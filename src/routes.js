@@ -11,10 +11,10 @@ import {Switch, Route} from 'react-router-dom'
 export default (
     <Switch>
         <Route exact path='/' component={Register} />
-        <Route path ='/dashboard' component={Dashboard} />
+        <Route path ='/dashboard/:resortId' component={Dashboard} />
         <Route path ='/resorts' component={Resorts} />
         <Route path ='/profile' component={Profile} />
-        <Route path ='/post' component={Post} />
+        <Route path ='/post/:resortId' component={Post} />
         <Route path ='/chatroom' component={Chatroom} />
     </Switch>
 )

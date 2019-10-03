@@ -12,7 +12,8 @@ module.exports = {
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
         // Add the new rider in the DB
-        const newRider = await db.add_rider({username, email, firstName, lastName, profilePic, password, hash})
+        const newRider = await db.add_rider(
+        {username, email, firstName, lastName, profilePic, password, hash})
 
         // Store new rider on session
         req.session.rider = {

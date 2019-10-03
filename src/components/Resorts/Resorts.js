@@ -20,7 +20,7 @@ export default class Resorts extends Component {
 
     render() {
         const resortList = this.state.resorts.map(resorts => (
-            <Link to={`/chatroom/${resorts.name}`}>
+            <Link to={`/dashboard/${resorts.id}`}>
               <img className="resort-image" src={resorts.image} alt={resorts.name}/>
               <h3 className="list">{resorts.name}</h3>
             </Link>

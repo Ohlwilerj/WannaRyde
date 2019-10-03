@@ -5,6 +5,7 @@ const session = require('express-session')
 const massive = require('massive')
 const authCtrl = require('./authController')
 const resCtrl = require('./resortsController')
+const postCtrl = require('./postController')
 
 const app = express()
 
@@ -26,6 +27,10 @@ app.delete('/auth/logout', authCtrl.logout)
 
 // RESORTS ENDPOINT
 app.get('/api/resorts', resCtrl.getResorts)
+
+// POSTS ENDPOINTS
+app.get('api/posts', postCtrl.getPosts)
+app.post('api/post/new', postCtrl.addPost)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
