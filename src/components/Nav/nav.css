@@ -19,3 +19,13 @@
     background-image: linear-gradient(40deg,#f33e3e,#171beb);
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1),5px 0 5px rgba(0,0,0,.2);
 }
+.logout button {
+    top: 700px;
+    /* border: solid green; */
+}
+.groups {
+    text-decoration: none;
+    color: #fff;
+    text-underline-position: none;
+
+}

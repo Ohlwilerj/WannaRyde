@@ -1,0 +1,18 @@
+.resort-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  max-width: 1100px;
+  margin: 0 auto
+}
+
+.resort-image {
+    max-width: 350px;
+    height: 200px;
+    margin: 20px;
+}
+
+/* .list {
+    height: 200px;
+} */

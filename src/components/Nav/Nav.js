@@ -12,11 +12,11 @@ class Nav extends Component {
             <div className="column-parent">
                 <div className="top-links">
                     <Link to='/profile'>
-                        <img src="" alt=""/>
+                        <img src={this.props.profilePic} alt=""/>
                     </Link>
                     <h4 className="username">{this.props.username}Username</h4>
                     <Link to="/resorts">
-                        <h4 className="my-groups">MyGroups</h4>
+                        <h4 className="groups">Groups</h4>
                     </Link>
                 <div className="logout-button">
                     <Link className="link" to="/">

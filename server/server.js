@@ -3,7 +3,8 @@ const express = require('express')
 const {SERVER_PORT, SESSION_SECRET, CONNECTION_STRING} = process.env
 const session = require('express-session')
 const massive = require('massive')
-const ctrl = require('./controller')
+const authCtrl = require('./authController')
+const resCtrl = require('./resortsController')
 
 const app = express()
 
@@ -18,9 +19,13 @@ app.use(session({
 
 // ENDPOINTS
 
-app.post('/auth/login', ctrl.login)
-app.post('/auth/register', ctrl.register)
-app.delete('/auth/logout', ctrl.logout)
+// AUTH ENDPOINTS
+app.post('/auth/login', authCtrl.login)
+app.post('/auth/register', authCtrl.register)
+app.delete('/auth/logout', authCtrl.logout)
+
+// RESORTS ENDPOINT
+app.get('/api/resorts', resCtrl.getResorts)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
