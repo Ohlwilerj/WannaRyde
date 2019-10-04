@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Nav from './../Nav/Nav'
 import axios from 'axios';
+import './post.css'
 
 export default class Post extends Component {
     constructor() {
@@ -28,16 +29,18 @@ export default class Post extends Component {
     render() {
         return (
             <div className="main">
-                <div className="title-container">
-                    <h1>New Post</h1>
-                    <p>Title:</p><input className="input-box" type="text"/>
-                </div>
-                <div className="message-container">
-                    <p>Message:</p> 
-                    <textarea className="message-input" cols="80" rows="15" placeholder="Message" type="text"/>
-                </div>
-                <div className="submit-button">
-                    <button>Submit</button>
+                <div className="shadow-box">
+                    <div className="title-container">
+                     <h1>New Post</h1>
+                        <p>Title:</p><input className="input-box" type="text"/>
+                    </div>
+                    <div className="message-container">
+                        <p>Message:</p> 
+                        <textarea className="message-input" cols="80" rows="15" placeholder="Message" type="text"/>
+                    </div>
+                    <div className="submit-button">
+                        <button className="buttons" onClick={this.addPost}>Submit</button>
+                    </div>
                 </div>
                 <Nav />
             </div>

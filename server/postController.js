@@ -7,10 +7,10 @@ module.exports = {
 
     async addPost(req, res) {
         const db = req.app.get('db')
-        const riderId = req.session
-        console.log(riderId)
+        const userId = req.session
+        console.log(userId)
         const {title, content} = req.body
-        await db.add_post([title, content, riderId])
+        await db.add_post([title, content, userId])
         res.status(200)
 
     }

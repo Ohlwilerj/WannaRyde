@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import swal from 'sweetalert2'
 import axios from 'axios'
-import {updateRider} from '../../ducks/reducer'
+import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import './register.css'
 
@@ -9,15 +9,14 @@ class Register extends Component {
     constructor() {
         super()
         this.state = {
-            username: '',
-            email: '',
+            logEmail: '',
             loginPassword: '',
-            regPassword1: '',
-            regPassword2: '',
             firstName: '',
             lastName: '',
-            profilePic: '',
-            regUsername: '',
+            email: '',
+            regPassword1: '',
+            regPassword2: '',
+            profile_pic: '',
         }
     }
 
@@ -28,21 +27,28 @@ class Register extends Component {
     }
 
     async register() {
-        const {username, email, regPassword1, regPassword2, firstName, lastName, profilePic} = this.state
+        const {email, regPassword1, regPassword2, firstName, lastName, profile_pic} = this.state
         if(regPassword1 === regPassword2) {
-            const res = axios.post('/auth/register', {username, email, regPassword2, firstName,lastName, profilePic})
-            this.props.updateRider(res.data.rider)
+            const res = await axios.post('/auth/register', {email, regPassword2, firstName,lastName, profile_pic})
+            this.props.updateUser(res.data.user)
             swal.fire({type: 'You did it', text: res.data.message})
+            this.props.history.push('/profile')
         } else {
             swal.fire({type: 'error', text: `Passwords don't match homie`})
         }
     }
 
     async login() {
-        let res = await axios.post('/auth/login', {username: this.state.username, password: this.state.loginPassword})
-        this.setState({rider: res.data.riderData})
-        swal.fire(res.data.message)
-        this.props.history.push('/profile')
+        const {logEmail, loginPassword} = this.state
+        let res = await axios.post('/auth/login', {logEmail: this.state.logEmail, loginPassword: this.state.loginPassword})
+        console.log(res.data)
+        if(res.data.user) {
+            this.props.updateUser(res.data.user)
+            swal.fire(res.data.message)
+            this.props.history.push('/profile')
+        } else {
+            swal.fire(res.data.message)
+        }
     }
 
 
@@ -51,26 +57,28 @@ class Register extends Component {
             <div className="register-parent">
                 <div className="register-form">
                     <div className="login-box">
-                        <input type="text" value={this.state.username} onChange={e => this.handleChange(e,"username")} placeholder='Username'/>
+                        <input type="text" value={this.state.logEmail} onChange={e => this.handleChange(e,"logEmail")} placeholder='Email'/>
                         <input type="password" value={this.state.loginPassword} onChange={e => this.handleChange(e, "loginPassword")} placeholder='Password'/>
                     </div>
-                    <div className="login-button">
-                        <button onClick={() => this.login()}>Login</button>
+                    <div className="button">
+                        <button className="buttons"onClick={() => this.login()}>Login</button>
                     </div>
                     <div className="name-box">
                         <input type="text" value={this.state.firstName} onChange={e => this.handleChange(e, "firstName")} placeholder='First Name'/>
                         <input type="text" value={this.state.lastName} onChange={e => this.handleChange(e, "lastName")}placeholder='Last Name'/>
                     </div>
                     <div className="username-email">
-                        <input type="text" value={this.state.regUsername} onChange={e => this.handleChange(e, "regUsername")}placeholder='Username'/>
                         <input type="text" value={this.state.email} onChange={e => this.handleChange(e, "email")}placeholder='Email'/>
                     </div>
                     <div className="password-box">
                         <input type="password" value={this.state.regPassword1} onChange={e => this.handleChange(e, "regPassword1")}placeholder='Password'/>
                         <input type="password" value={this.state.regPassword2} onChange={e => this.handleChange(e, "regPassword2")}placeholder='Repeat Password'/>
                     </div>
-                    <div className="register-button">
-                        <button onClick={() => this.register()}>Register</button>
+                    <div className="profile-input">
+                        <input type="text" placeholder="Profile Image"/>
+                    </div>
+                    <div className="button">
+                        <button className="buttons" onClick={() => this.register()}>Register</button>
                     </div>
 
 
@@ -81,4 +89,9 @@ class Register extends Component {
     }
 }
 
-export default connect (null, {updateRider})(Register)
+function mapStateToProps(reduxState) {
+    const {user} = reduxState
+    return {user} 
+}
+
+export default connect (mapStateToProps, {updateUser})(Register)

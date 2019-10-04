@@ -27,13 +27,20 @@ input {
     width: 150px;
 }
 
-button {
+.buttons {
     background: linear-gradient(150deg, #14d6dd, rgba(218, 215, 40, 0.4));
     color: black;
     height: 1.5rem;
     outline: none;
     border-radius: 30px;
-    width: 100px;
+    width: 100px; 
+}
+
+button:hover {
+    background: linear-gradient(150deg, #67f7fc, rgba(248, 245, 85, 0.4));
+}
+button:active {
+    background: linear-gradient(150deg, #11a3a8, rgba(150, 148, 23, 0.4));
 }
 
 .login-box {
@@ -61,6 +68,9 @@ button {
     align-content: center;
     /* border: solid yellow; */
 }
+.username-email > input {
+    width: 355px;
+}
 
 .username-email {
     width: 75%;
@@ -71,6 +81,10 @@ button {
     /* border: solid green; */
 }
 
+.button {
+    padding: 10px;
+}
+
 .password-box {
     width: 75%;
     padding: 10px;
@@ -78,4 +92,8 @@ button {
     justify-content: space-evenly;
     align-content: center;
     /* border: solid orange; */
+}
+.profile-input > input {
+    width: 355px;
+    
 }

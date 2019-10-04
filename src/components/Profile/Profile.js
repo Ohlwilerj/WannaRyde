@@ -4,27 +4,34 @@ import Nav from './../Nav/Nav'
 import './profile.css'
 
 export default class Profile extends Component {
+    constructor() {
+        super()
+        this.state = {
+
+        }
+    }
     render() {
         return (
-            <div className="main">
+            <div className="parent-container">
                 <div className="top-container">
                     <div className="rider-info">
-                        <h3>Rider Info:</h3>
-                        <h4>Username:</h4>
+                        <h2>Rider Info:</h2>
                         <h4>Name:</h4>
                         <h4>Email:</h4>
+                        <h4>Fav resorts:</h4>
+                            <li></li>
                     </div>
                     <div className="profile-pic">
                         <img src="" alt=""/>
                     </div>
                     <div className="edit-buttons">
                         <div className="rider-info-buttons">
-                            <button>Edit</button>
-                            <button>Cancel</button>
+                            <button className="buttons">Edit</button>
+                            <button className="buttons">Cancel</button>
                         </div>
                         <div className="profile-pic-buttons">
-                            <button>Edit</button>
-                            <button>Cancel</button>
+                            <button className="buttons">Edit</button>
+                            <button className="buttons">Cancel</button>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,25 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1400px;
+    margin: 0 auto;
+    /* border: solid blue; */
+    box-sizing: border-box;
+}
+
+.shadow-box {
+    height: 700px;
+    width: 1000px;
+    /* border: solid orange; */
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59);
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59); 
+}
+.input-box {
+    width: 80%;
+}
+
+.message-input {
+    width: 80%;
+    border-radius: 20px;
+}

@@ -1,2 +1,2 @@
 SELECT * FROM riders
-WHERE username = $1
+WHERE email = $1

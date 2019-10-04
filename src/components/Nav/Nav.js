@@ -2,25 +2,39 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import './nav.css'
+import axios from 'axios'
+import swal from 'sweetalert2'
+import {updateUser} from '../../ducks/reducer'
 
 class Nav extends Component {
     constructor() {
         super()
     }
+
+    componentDidMount() {
+
+    }
+
+    async logout() {
+        const res = await axios.delete('/auth/logout')
+        this.props.updateUser(null)
+        swal.fire(res.data.message)
+    }
     render() {
+        console.log(this.props)
         return (
             <div className="column-parent">
                 <div className="top-links">
                     <Link className="profile" to='/profile'>
-                        <img src={this.props.profilePic} alt=""/>
+
+                        <img src={this.props.user && this.props.user.profile_pic} alt=""/>
                     </Link>
-                    <h4 className="username">{this.props.username}Username</h4>
                     <Link to="/resorts">
                         <h4 className="groups">Groups</h4>
                     </Link>
-                <div className="logout-button">
+                <div className="logout-button" >
                     <Link className="link" to="/">
-                        <i className="fas fa-sign-out-alt"></i>
+                        <i className="fas fa-sign-out-alt" onClick={() => this.logout()}></i>
                     </Link>
                 </div>
                 </div>
@@ -30,8 +44,8 @@ class Nav extends Component {
 }
 
 function mapStateToProps(reduxState) {
-    const{username, profilePic} = reduxState
-    return {username, profilePic}
+    const{user, profilePic} = reduxState
+    return {user, profilePic}
 }
 
-export default connect(mapStateToProps)(Nav)
+export default connect(mapStateToProps, {updateUser})(Nav)

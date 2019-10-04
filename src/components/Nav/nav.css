@@ -18,10 +18,12 @@
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1),5px 0 5px rgba(0,0,0,.2);
 }
 .logout-button {
-    margin-top: 570px;
+    margin-top: 580px;
     /* border: solid rgb(238, 210, 52); */
-
+    font-size: 2.5rem;
+    color: #fff
 }
+
 .groups {
     text-decoration: none;
     color: #fff;
@@ -30,8 +32,8 @@
 }
 .profile > img {
     border: solid greenyellow;
-    width: 75px;
-    height: 75px;
+    max-width: 100px;
+    max-height: 100px;
 }
 .username {
     border: solid gray;

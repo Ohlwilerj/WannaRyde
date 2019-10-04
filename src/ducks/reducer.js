@@ -1,31 +1,30 @@
 // INITIAL STATE
 const initialState = {
     username: '',
-    password: '',
-    profileImg: '',
+    profile_pic: '',
     loggedIn: false,
-    rider: null,
+    user: null
 }
 
 
 
 // ACTION CONST
-const UPDATE_RIDER = 'UPDATE_RIDER'
+const UPDATE_USER = 'UPDATE_USER'
 
 
 // ACTION BUILDERS
-export const updateRider = (riderObj) => {
+export const updateUser = (userObj) => {
     return {
-        type: UPDATE_RIDER,
-        payload: riderObj
+        type: UPDATE_USER,
+        payload: userObj
     }
 }
 
 // REDUCER
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_RIDER:
-            return {...state, rider: action.payload}
+        case UPDATE_USER:
+            return {...state, user: action.payload}
         default: return state
     }
 }
