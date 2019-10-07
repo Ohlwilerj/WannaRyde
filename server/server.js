@@ -29,7 +29,7 @@ app.delete('/auth/logout', authCtrl.logout)
 app.get('/api/resorts', resCtrl.getResorts)
 
 // POSTS ENDPOINTS
-app.get('/api/posts', postCtrl.getPosts)
+app.get('/api/posts/:id', postCtrl.getPosts)
 app.post('/api/post/new', postCtrl.addPost)
 
 massive(CONNECTION_STRING).then(db => {

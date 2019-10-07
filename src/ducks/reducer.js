@@ -1,7 +1,5 @@
 // INITIAL STATE
 const initialState = {
-    username: '',
-    profile_pic: '',
     loggedIn: false,
     user: null
 }

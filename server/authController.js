@@ -16,7 +16,7 @@ module.exports = {
         {email, firstName, lastName, profile_pic, regPassword2, hash}).catch(err => {
             return res.status(503)
         })
-        // console.log(newUser)
+        console.log(newUser)
         // Store new user on session
         req.session.user = {
             email,
@@ -34,7 +34,7 @@ module.exports = {
         const {logEmail, loginPassword} = req.body
         // console.log(req.body)
         const user = await db.find_user(logEmail)
-        console.log(user)
+        // console.log(user)
         if (!user[0]) return res.status(200).send({message: `Can't find your username`})
         const result = bcrypt.compareSync(loginPassword, user[0].hash)
         if(!result) return res.status(200).send({message: `Password ain't right bro. Try again`})

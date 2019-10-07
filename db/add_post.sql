@@ -1,2 +1,2 @@
-INSERT INTO posts (title, content)
-VALUES ($1, $2)
+INSERT INTO posts (title, content, rider_id, resort_id)
+VALUES (${title}, ${content}, ${rider_id}, ${resort_id});

@@ -1,9 +1,11 @@
 .column-parent {
     display: flex;
     height: 100vh;
+    
 }
 .top-links {
     box-sizing: inherit;
+    /* border: solid black; */
     margin: 0;
     padding: 0;
     border: 0;
@@ -18,27 +20,22 @@
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1),5px 0 5px rgba(0,0,0,.2);
 }
 .logout-button {
-    margin-top: 580px;
-    /* border: solid rgb(238, 210, 52); */
+    margin-top: 610px;
+    border: solid rgb(238, 210, 52);
     font-size: 2.5rem;
-    color: #fff
+    color: #fff;
+    /* position: fixed; */
 }
 
 .groups {
     text-decoration: none;
     color: #fff;
     text-underline-position: none;
-
+    border: solid pink;
 }
 .profile > img {
     border: solid greenyellow;
-    max-width: 100px;
+    max-width: 90px;
     max-height: 100px;
 }
-.username {
-    border: solid gray;
-}
 
-.groups {
-    border: solid pink;
-}
