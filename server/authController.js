@@ -13,7 +13,7 @@ module.exports = {
         const hash = bcrypt.hashSync(regPassword2, salt)
         // Add the new user in the DB
         const newUser = await db.add_user(
-        {email, firstName, lastName, profile_pic, regPassword2, hash}).catch(err => {
+        {firstName, lastName, email, profile_pic, regPassword2, hash}).catch(err => {
             return res.status(503)
         })
         console.log(newUser)
@@ -23,7 +23,7 @@ module.exports = {
             firstName,
             lastName,
             profile_pic,
-            id: newUser[0].id
+            userId: newUser[0].id
         }
         // Send session to the front end
         res.status(200).send({message:`You're all logged in`, user: req.session.user, loggedIn: true})

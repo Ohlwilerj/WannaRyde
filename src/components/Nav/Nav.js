@@ -21,7 +21,7 @@ class Nav extends Component {
         swal.fire(res.data.message)
     }
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <div className="column-parent">
                 <div className="top-links">

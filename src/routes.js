@@ -15,6 +15,6 @@ export default (
         <Route path ='/resorts' component={Resorts} />
         <Route path ='/profile' component={Profile} />
         <Route path ='/post/:resortId' component={Post} />
-        <Route path ='/chatroom' component={Chatroom} />
+        <Route path ='/chatroom/:postId' component={Chatroom} />
     </Switch>
 )

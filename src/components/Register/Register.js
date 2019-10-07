@@ -39,9 +39,9 @@ class Register extends Component {
     }
 
     async login() {
-        const {logEmail, loginPassword} = this.state
+        // const {logEmail, loginPassword} = this.state
         let res = await axios.post('/auth/login', {logEmail: this.state.logEmail, loginPassword: this.state.loginPassword})
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.user) {
             this.props.updateUser(res.data.user)
             swal.fire(res.data.message)

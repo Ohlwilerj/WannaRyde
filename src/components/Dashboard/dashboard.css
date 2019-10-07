@@ -7,9 +7,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    
+
     align-items: center;
     padding: 10px;
+}
+.posts-container > i {
+    color: blue;
+    font-size: 25px;
+    padding-left: 940px;
 }
 
 .add-button-post{
@@ -18,8 +23,8 @@
     align-items: flex-end;
 }
 .posts {
-    color: inherit;
-    box-sizing: inherit;
+    color: black;
+    /* box-sizing: inherit; */
     border: 0;
     font-size: 100%;
     font: inherit;

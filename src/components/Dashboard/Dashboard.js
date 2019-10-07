@@ -18,9 +18,13 @@ export default class Dashboard extends Component {
         })
     }
 
+    addToGroups = async () => {
+        
+    }
+
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         let posts = this.state.posts.map((el) =>{
             return (
                 <Link key={el.post_id} to={`/chatroom/${el.post_id}`}>
@@ -34,6 +38,7 @@ export default class Dashboard extends Component {
         return (
             <div className="main">
                 <div className="posts-container">
+                    <i class="fas fa-plus"></i>
                     <div className="add-post-button">
                         <div className="posts">
                             {posts}

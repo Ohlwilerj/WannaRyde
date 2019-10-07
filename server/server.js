@@ -30,7 +30,8 @@ app.get('/api/resorts', resCtrl.getResorts)
 
 // POSTS ENDPOINTS
 app.get('/api/posts/:id', postCtrl.getPosts)
-app.post('/api/post/new', postCtrl.addPost)
+app.post('/api/post/new/', postCtrl.addPost)
+app.delete('api/delete', postCtrl.delete)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
