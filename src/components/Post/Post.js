@@ -23,7 +23,7 @@ export default class Post extends Component {
 
     addPost = async () => {
          let {title, message} = this.state
-         await axios.post(`/api/post/new/`, {title, message, resort_id: this.props.match.params.resortId})
+         await axios.post(`/api/post/new`, {title, message, resort_id: this.props.match.params.resortId})
          this.props.history.push(`/dashboard/${this.props.match.params.resortId}`)
     }
 

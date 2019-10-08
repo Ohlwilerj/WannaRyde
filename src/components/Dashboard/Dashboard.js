@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Nav from './../Nav/Nav'
 import {Link} from 'react-router-dom'
 import './dashboard.css'
-import Axios from 'axios';
+import axios from 'axios';
 
 export default class Dashboard extends Component {
     constructor(){
@@ -13,21 +13,24 @@ export default class Dashboard extends Component {
     }
 
     componentDidMount() {
-        Axios.get(`/api/posts/${this.props.match.params.resortId}`).then(res => {
-            this.setState({allPosts: res})
+        axios.get(`/api/posts/${this.props.match.params.resortId}`).then(res => {
+            this.setState({posts: res.data})
         })
     }
 
-    addToGroups = async () => {
-        
-    }
+    // getPosts() {
+    //     axios.get(`/api/posts/${this.props.match.params.resortId}`).then(res => 
+    //         {this.setState({posts: res.data})
+    // })
+
 
 
     render() {
         // console.log(this.props)
         let posts = this.state.posts.map((el) =>{
+            console.log(el)
             return (
-                <Link key={el.post_id} to={`/chatroom/${el.post_id}`}>
+                <Link key={el.id} to={`/chatroom/${el.id}`}>
                     <div className>
                         <h2>{el.title}</h2>
                         <p>{el.name}</p>
@@ -38,11 +41,11 @@ export default class Dashboard extends Component {
         return (
             <div className="main">
                 <div className="posts-container">
-                    <i class="fas fa-plus"></i>
-                    <div className="add-post-button">
+                    <i className="fas fa-plus"></i>
                         <div className="posts">
                             {posts}
                         </div>
+                    <div className="add-post-button">
                         <Link className="link" to={`/post/${this.props.match.params.resortId}`}>
                             <button className="buttons">Add Post</button>
                         </Link>

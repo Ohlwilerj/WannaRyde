@@ -25,12 +25,17 @@ class Nav extends Component {
         return (
             <div className="column-parent">
                 <div className="top-links">
-                    <Link className="profile" to='/profile'>
-
-                        <img src={this.props.user && this.props.user.profile_pic} alt=""/>
+                    <Link to='/profile'>
+                        <div className="profile">
+                            <img src={this.props.user && this.props.user.profile_pic} alt=""/>
+                        </div>
                     </Link>
                     <Link to="/resorts">
-                        <h4 className="groups">Groups</h4>
+                        <div className="groups-link">
+                            <i className="fas fa-users">
+                                {/* <h4 className="groups">Groups</h4> */}
+                            </i>
+                        </div>
                     </Link>
                 <div className="logout-button" >
                     <Link className="link" to="/">

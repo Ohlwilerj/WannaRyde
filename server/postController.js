@@ -8,20 +8,22 @@ module.exports = {
     },
 
     async addPost(req, res) {
-
         const db = req.app.get('db')
-        const {userId} = req.session.user
-        // console.log(req.session)
+        const userId = req.session.user
+        const name = req.session.user
         const {title, message, resort_id} = req.body
-        console.log(title, message, userId, resort_id)
-        await db.add_post([title, message, userId, resort_id])
-        .then(response => {
-            // console.log(response)
-            res.status(200)
-        }).catch(err => {
+        // console.log(title, message, name, userId, resort_id)
+         await db.add_post([title, message, userId, name, resort_id])
+        .then(res => {res.status(200)}).catch(err => {
             // console.log(err)
         })
-        // console.log(req.body)
+        console.log(req.body)
+    },
+    async getOnePost(req, res) {
+        const db = req.app.get('db')
+        const id = req.id
+        const result = await db.get_one_post(id)
+        res.status(200).send(result)
     },
     async delete(req,res) {
         const db = req.app.get('db')

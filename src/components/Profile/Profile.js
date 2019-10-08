@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-// import {Link} from 'react-router-dom'
 import Nav from './../Nav/Nav'
 import './profile.css'
 import {connect} from 'react-redux'
 import {updateUser} from './../../ducks/reducer'
+import axios from 'axios'
 
 class Profile extends Component {
     constructor() {
@@ -12,15 +12,18 @@ class Profile extends Component {
             name: '',
             email: '',
             profile_pic: '',
-            favResorts: []
+            favResorts: [],
+            edit: false,
         }
     }
 
-    // edit = () => {
-    //     this.setState({
-    //         profile_pic: 
-    //     })
-    // }
+    edit = () => {
+        let update = {
+            profile_pic: this.state.profile_pic
+        }
+        axios.put(`/api/update/${this.props.user.userId}`, update)
+        .then(res => {this.setState({profile_pic: res.data})})
+    }
 
     render() {
         return (
@@ -36,7 +39,7 @@ class Profile extends Component {
                     <div className="profile-pic">
                         <img src={this.props.user && this.props.user.profile_pic} alt=""/>
                         <div className="profile-pic-buttons">
-                            <button className="buttons">Edit</button>
+                            <button className="buttons" onClick={this.edit}>Edit</button>
                             <button className="buttons">Cancel</button>
                         </div>
                     </div>

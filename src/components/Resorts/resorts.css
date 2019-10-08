@@ -4,7 +4,8 @@
   flex-wrap: wrap;
   flex-direction: row;
   max-width: 1150px;
-  margin: 0 auto
+  margin: 0 auto;
+  padding-left: 100px;
 }
 
 .resort-image {

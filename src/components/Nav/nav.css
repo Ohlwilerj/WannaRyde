@@ -21,21 +21,33 @@
 }
 .logout-button {
     margin-top: 610px;
-    border: solid rgb(238, 210, 52);
+    /* border: solid rgb(238, 210, 52); */
     font-size: 2.5rem;
     color: #fff;
     /* position: fixed; */
+    text-decoration: white;
+}
+.logout-button> i {
+    color: white;
 }
 
 .groups {
     text-decoration: none;
     color: #fff;
     text-underline-position: none;
-    border: solid pink;
+    /* border: solid pink; */
+}
+.profile {
+    /* border: solid greenyellow; */
+    max-width: 95px;
+    height: 120px;
 }
 .profile > img {
-    border: solid greenyellow;
-    max-width: 90px;
-    max-height: 100px;
+    max-width: 95px;
+    max-height: 120px;
+}
+.groups-link > i {
+    font-size: 2.5rem;
+    padding-top: 45px;
 }
 

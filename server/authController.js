@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 module.exports = {
     register: async (req,res) => {
         const db = req.app.get('db')
-        const {email, regPassword2, firstName, lastName, profile_pic} = req.body
+        const {firstName, lastName, profile_pic, regPassword2, email} = req.body
         // Checking to see if user already is registered
         // console.log(req.body)
         const user = await db.find_email(email)
@@ -19,14 +19,14 @@ module.exports = {
         console.log(newUser)
         // Store new user on session
         req.session.user = {
-            email,
             firstName,
             lastName,
+            email,
             profile_pic,
             userId: newUser[0].id
         }
         // Send session to the front end
-        res.status(200).send({message:`You're all logged in`, user: req.session.user, loggedIn: true})
+        res.status(200).send({message:`You're all logged in`,loggedIn: true, user: req.session.user })
     },
 
     login: async (req, res) => {

@@ -1,0 +1,30 @@
+.main-chat-box {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 100px;
+}
+.chat-box {
+    height: 700px;
+    width: 1000px;
+    /* border: solid orange; */
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59);
+    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59); 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.sub-chat-box {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    align-content: space-between;
+    padding: 12px;
+    /* border: solid red; */
+}
+.back-button {
+    padding-left: 40px;
+    font-size: 35px;
+}
