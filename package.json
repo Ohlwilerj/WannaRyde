@@ -13,6 +13,7 @@
     "express-session": "^1.16.2",
     "massive": "^6.1.0",
     "react": "^16.10.1",
+    "react-collapsible": "^2.6.0",
     "react-dom": "^16.10.1",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",

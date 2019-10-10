@@ -7,13 +7,7 @@ import swal from 'sweetalert2'
 import {updateUser} from '../../ducks/reducer'
 
 class Nav extends Component {
-    constructor() {
-        super()
-    }
-
-    componentDidMount() {
-
-    }
+    
 
     async logout() {
         const res = await axios.delete('/auth/logout')
@@ -37,11 +31,11 @@ class Nav extends Component {
                             </i>
                         </div>
                     </Link>
-                <div className="logout-button" >
                     <Link className="link" to="/">
-                        <i className="fas fa-sign-out-alt" onClick={() => this.logout()}></i>
+                        <div className="logout-button" >
+                            <i className="fas fa-sign-out-alt" onClick={() => this.logout()}></i>
+                        </div>
                     </Link>
-                </div>
                 </div>
             </div>
         )

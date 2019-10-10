@@ -11,10 +11,10 @@ const UPDATE_USER = 'UPDATE_USER'
 
 
 // ACTION BUILDERS
-export const updateUser = (userObj) => {
+export const updateUser = (userObj, loggedIn) => {
     return {
         type: UPDATE_USER,
-        payload: userObj
+        payload: {userObj, loggedIn}
     }
 }
 
@@ -22,7 +22,8 @@ export const updateUser = (userObj) => {
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case UPDATE_USER:
-            return {...state, user: action.payload}
+            console.log(action.payload)
+            return {...state, user: action.payload.userObj, loggedIn: action.payload.loggedIn}
         default: return state
     }
 }

@@ -1,23 +1,26 @@
 .parent-container {
-    width: 1300 px;
-    height: 1200px;
+    box-sizing: border-box;
+    background: #B61838;
+    background: -moz-linear-gradient(-45deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
+    background: -webkit-linear-gradient(-45deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
+    background: linear-gradient(135deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
+    /* width: 900 px; */
+    height: 100vh;
     padding-left: 100px;
+    padding-top: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-content: center;
     flex-direction: column;
-    /* position: fixed; */
-    /* box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59);
-    -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59);  */
 }
 
 .top-container {
     /* border: solid yellow; */
-    width: 1500px;
-    height: 950px;
+    width: 100%vw;
+    height: 50vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 .rider-info {
     /* border: solid teal; */
@@ -34,11 +37,16 @@
 .profile-pic {
     /* display: flex;
     flex-direction: column; */
-    padding-top: 20px;
+    /* padding-top: 20px; */
     /* border: solid orange; */
-    height: 450px;
+    max-height: 450px;
     width: 700px;
     box-sizing: border-box;
+}
+.profile-pic > img {
+    max-width: 700px;
+    max-height: 450px;
+
 }
 .profile-pic-buttons {
     padding-top: 40px;
@@ -49,3 +57,16 @@
     display: flex;
     justify-content: space-around;
 }
+
+/* @media (max-width: 1500px) {
+    .top-container {
+        max-width: 1200px;
+    }
+} */
+@media (min-width: 1500px) {
+    .parent-container {
+        min-width: 1300px;
+    }
+}
+
+

@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Yatra+One&display=swap');
+
+.resort-main {
+  background: #1d8de9;
+  background: -moz-linear-gradient(-45deg, #B61838 0%, #1d8de9 30%, #B61838 100%);
+  background: -webkit-linear-gradient(-45deg, #B61838 0%, #1d8de9 30%, #B61838 100%);
+  background: linear-gradient(135deg, #B61838 0%, #1d8de9 30%, #B61838 100%);
+
+}
+
 .resort-list {
   display: flex;
   justify-content: center;
@@ -6,11 +16,64 @@
   max-width: 1150px;
   margin: 0 auto;
   padding-left: 100px;
+  /* border: solid orange; */
 }
 
 .resort-image {
     max-width: 295px;
     height: 200px;
     margin: 20px;
+    /* transition: transform.1s; */
+    /* border: solid red; */
+    
+  }
+  .resort-image-parent {
+    transition: transform.5s;
+    
+}
+.resort-image-parent:hover {
+  transform: scale(1.3);
+  
+}
+
+.resort-header {
+  width: 100%wv;
+  box-sizing: border-box;
+  padding-left: 100px;
+  height: 90px;
+  /* border: solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Yatra One';
+  color: #FFFFFF;
+  font-size: 18pt;
+  text-transform: uppercase; 
+  justify-content: center
+}
+
+@media (max-width: 1050px) {
+    .resort-list {
+        max-width: 1040px;
+    }
+}
+@media (min-width: 1500px) {
+  .resort-list {
+    min-width: 1050px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .resort-list {
+    max-width: 1050px;
+  }
+}
+.list {
+  font-size: 18pt;
+  text-decoration: none;
+  text-decoration-style: none;
+  color: #FFFFFF;
+  text-underline-position: none;
+  font-family: "Yatra One"
 }
 

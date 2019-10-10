@@ -22,7 +22,8 @@ class Profile extends Component {
             profile_pic: this.state.profile_pic
         }
         axios.put(`/api/update/${this.props.user.userId}`, update)
-        .then(res => {this.setState({profile_pic: res.data})})
+        .then(res => {this.setState({profile_pic: res.data})
+    })
     }
 
     render() {
@@ -30,17 +31,19 @@ class Profile extends Component {
             <div className="parent-container">
                 <div className="top-container">
                     <div className="rider-info">
-                        <h2>Rider Info:</h2>
-                        <h4>Name: {this.props.user && this.props.user.name}</h4>
-                        <h4>Email: {this.props.user && this.props.user.logEmail}</h4>
+                        <h1>Rider Info:</h1>
+                        <h2>Name: {this.props.user && this.props.user.name}</h2>
+                        <h2>Email: {this.props.user && this.props.user.email}</h2>
                         {/* <h4>Fav resorts:</h4>
                             <li></li> */}
                     </div>
                     <div className="profile-pic">
-                        <img src={this.props.user && this.props.user.profile_pic} alt=""/>
-                        <div className="profile-pic-buttons">
+                        <img
+                        src={this.props.user && this.props.user.profile_pic} 
+                        alt=""/>
                             <button className="buttons" onClick={this.edit}>Edit</button>
                             <button className="buttons">Cancel</button>
+                        <div className="profile-pic-buttons">
                         </div>
                     </div>
                     {/* <div className="edit-buttons">
@@ -52,7 +55,7 @@ class Profile extends Component {
                 </div>
                 <div className="my-groups">
                     <h3>My Groups</h3>
-                    <div className="groups-list">[ ]</div>
+                <div className="groups-list">[ ]</div>
                 </div>
                 
                 <Nav />

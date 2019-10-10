@@ -1,6 +1,6 @@
 .column-parent {
     display: flex;
-    height: 100vh;
+    /* height: 100vh; */
     
 }
 .top-links {
@@ -16,22 +16,24 @@
     left: 0;
     padding-top: 20px;
     color: #fff;
-    background-image: linear-gradient(40deg,#f33e3e,#171beb);
+    background-image: linear-gradient(40deg,#c3073f,#1a1a1d);
     box-shadow: 10px 0 20px 0 rgba(0,0,0,.1),5px 0 5px rgba(0,0,0,.2);
 }
 .logout-button {
-    margin-top: 610px;
+    margin-top: 375px;
+    box-sizing: border-box;
     /* border: solid rgb(238, 210, 52); */
     font-size: 2.5rem;
-    color: #fff;
-    /* position: fixed; */
+    position: relative;
     text-decoration: white;
+    color: #fff
 }
-.logout-button> i {
+/* .logout-button > i {
     color: white;
-}
+} */
 
-.groups {
+.groups-link {
+    padding-top: 220px;
     text-decoration: none;
     color: #fff;
     text-underline-position: none;

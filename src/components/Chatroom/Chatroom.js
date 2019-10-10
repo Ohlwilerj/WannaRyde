@@ -38,8 +38,11 @@ export default class Chatroom extends Component {
         return (
             <div className="main-chat-box">
                 <div className="chat-box">
+                        <h2>
+                            {this.props.id}
+                            {this.props.content}
+                        </h2>
                     <div className="sub-chat-box">
-                        <h2>{this.props.postId}</h2>
                         <textarea className="chat-message" 
                         cols="100" rows="5"
                         value={this.state.message} 

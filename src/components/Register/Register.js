@@ -9,7 +9,6 @@ class Register extends Component {
     constructor() {
         super()
         this.state = {
-            logEmail: '',
             loginPassword: '',
             firstName: '',
             lastName: '',
@@ -30,7 +29,7 @@ class Register extends Component {
         const {email, regPassword1, regPassword2, firstName, lastName, profile_pic} = this.state
         if(regPassword1 === regPassword2) {
             const res = await axios.post('/auth/register', {email, regPassword2, firstName,lastName, profile_pic})
-            this.props.updateUser(res.data.user)
+            this.props.updateUser(res.data.user, res.data.loggedIn)
             swal.fire({type: 'You did it', text: res.data.message})
             this.props.history.push('/profile')
         } else {
@@ -40,10 +39,10 @@ class Register extends Component {
 
     async login() {
         // const {logEmail, loginPassword} = this.state
-        let res = await axios.post('/auth/login', {logEmail: this.state.logEmail, loginPassword: this.state.loginPassword})
+        let res = await axios.post('/auth/login', {email: this.state.email, loginPassword: this.state.loginPassword})
         // console.log(res.data)
         if(res.data.user) {
-            this.props.updateUser(res.data.user)
+            this.props.updateUser(res.data.user, res.data.loggedIn)
             swal.fire(res.data.message)
             this.props.history.push('/profile')
         } else {
@@ -54,37 +53,38 @@ class Register extends Component {
 
     render() {
         return (
-            <div className="register-parent">
-                <div className="register-form">
-                    <div className="login-box">
-                        <input type="text" value={this.state.logEmail} onChange={e => this.handleChange(e,"logEmail")} placeholder='Email'/>
-                        <input type="password" value={this.state.loginPassword} onChange={e => this.handleChange(e, "loginPassword")} placeholder='Password'/>
-                    </div>
-                    <div className="button">
-                        <button className="buttons"onClick={() => this.login()}>Login</button>
-                    </div>
-                    <div className="name-box">
-                        <input type="text" value={this.state.firstName} onChange={e => this.handleChange(e, "firstName")} placeholder='First Name'/>
-                        <input type="text" value={this.state.lastName} onChange={e => this.handleChange(e, "lastName")}placeholder='Last Name'/>
-                    </div>
-                    <div className="username-email">
-                        <input type="text" value={this.state.email} onChange={e => this.handleChange(e, "email")}placeholder='Email'/>
-                    </div>
-                    <div className="password-box">
-                        <input type="password" value={this.state.regPassword1} onChange={e => this.handleChange(e, "regPassword1")}placeholder='Password'/>
-                        <input type="password" value={this.state.regPassword2} onChange={e => this.handleChange(e, "regPassword2")}placeholder='Repeat Password'/>
-                    </div>
-                    <div className="profile-input">
-                        <input type="text" placeholder="Profile Image"/>
-                    </div>
-                    <div className="button">
-                        <button className="buttons" onClick={() => this.register()}>Register</button>
-                    </div>
+                <div className="register-parent">
+                    <h1>Letz Ryde</h1>
+                    <div className="register-form">
+                        <div className="login-box">
+                            <input type="text" value={this.state.email} onChange={e => this.handleChange(e,"email")} placeholder='Email'/>
+                            <input type="password" value={this.state.loginPassword} onChange={e => this.handleChange(e, "loginPassword")} placeholder='Password'/>
+                        </div>
+                        <div className="button">
+                            <button className="buttons"onClick={() => this.login()}>Login</button>
+                        </div>
+                        <div className="name-box">
+                            <input type="text" value={this.state.firstName} onChange={e => this.handleChange(e, "firstName")} placeholder='First Name'/>
+                            <input type="text" value={this.state.lastName} onChange={e => this.handleChange(e, "lastName")}placeholder='Last Name'/>
+                        </div>
+                        <div className="username-email">
+                            <input type="text" value={this.state.email} onChange={e => this.handleChange(e, "email")}placeholder='Email'/>
+                        </div>
+                        <div className="password-box">
+                            <input type="password" value={this.state.regPassword1} onChange={e => this.handleChange(e, "regPassword1")}placeholder='Password'/>
+                            <input type="password" value={this.state.regPassword2} onChange={e => this.handleChange(e, "regPassword2")}placeholder='Repeat Password'/>
+                        </div>
+                        <div className="profile-input">
+                            <input type="text" onChange={e => this.handleChange(e, "profile_pic")} placeholder="Profile Image"/>
+                        </div>
+                        <div className="button">
+                            <button className="buttons" onClick={() => this.register()}>Register</button>
+                        </div>
 
 
-                </div>
+                    </div>
                 
-            </div>
+                </div>
         )
     }
 }

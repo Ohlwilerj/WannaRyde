@@ -32,7 +32,7 @@ app.put('/api/update/:id', resCtrl.editProfilePic)
 // POSTS ENDPOINTS
 app.get('/api/posts/:id', postCtrl.getPosts)
 app.post('/api/post/new', postCtrl.addPost)
-app.delete('api/delete', postCtrl.delete)
+app.delete('/api/delete/:id', postCtrl.delete)
 app.get('/api/post/:id', postCtrl.getOnePost)
 
 massive(CONNECTION_STRING).then(db => {

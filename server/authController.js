@@ -16,11 +16,10 @@ module.exports = {
         {firstName, lastName, email, profile_pic, regPassword2, hash}).catch(err => {
             return res.status(503)
         })
-        console.log(newUser)
+        // console.log(newUser)
         // Store new user on session
         req.session.user = {
-            firstName,
-            lastName,
+            name: firstName + ' ' + lastName,
             email,
             profile_pic,
             userId: newUser[0].id
@@ -31,15 +30,15 @@ module.exports = {
 
     login: async (req, res) => {
         const db = req.app.get('db')
-        const {logEmail, loginPassword} = req.body
+        const {email, loginPassword} = req.body
         // console.log(req.body)
-        const user = await db.find_user(logEmail)
+        const user = await db.find_user(email)
         // console.log(user)
         if (!user[0]) return res.status(200).send({message: `Can't find your username`})
         const result = bcrypt.compareSync(loginPassword, user[0].hash)
         if(!result) return res.status(200).send({message: `Password ain't right bro. Try again`})
         const {user_id: userId} = user[0]
-        req.session.user = {logEmail,  profile_pic: user[0].profile_pic, userId: user[0].id, name: user[0].first_name + ' ' + user[0].last_name}
+        req.session.user = {email,  profile_pic: user[0].profile_pic, userId: user[0].id, name: user[0].first_name + ' ' + user[0].last_name}
 
         res.status(200).send({message: `You're all logged in`, user: req.session.user, loggedIn: true})
     },

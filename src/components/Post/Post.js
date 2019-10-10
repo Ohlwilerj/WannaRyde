@@ -25,11 +25,13 @@ export default class Post extends Component {
          let {title, message} = this.state
          await axios.post(`/api/post/new`, {title, message, resort_id: this.props.match.params.resortId})
          this.props.history.push(`/dashboard/${this.props.match.params.resortId}`)
+         
     }
 
     render() {
         return (
-            <div className="main">
+            <div className="main-post-container">
+                <div className="sub-post-container">
                 <div className="shadow-box">
                     <div className="title-container">
                      <h1>New Post</h1>
@@ -51,6 +53,7 @@ export default class Post extends Component {
                             <button className="buttons" onClick={this.addPost}>Submit</button>
                         </Link>
                     </div>
+                </div>
                 </div>
                 <Nav />
             </div>

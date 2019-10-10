@@ -1,4 +1,20 @@
+.sub-dashboard {
+    background: #B61838;
+    background: -moz-linear-gradient(-45deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
+    background: -webkit-linear-gradient(-45deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
+    background: linear-gradient(135deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
+    width: 1800px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    border: solid black;
+
+}
 .posts-container {
+    background: white;
     height: 700px;
     width: 1000px;
     /* border: solid orange; */
@@ -6,8 +22,7 @@
     -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.59); 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-
+    justify-content: space-evenly;
     align-items: center;
     padding: 10px;
 }
@@ -15,6 +30,10 @@
     color: blue;
     font-size: 25px;
     padding-left: 940px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    box-sizing: inherit;
 }
 
 .add-button-post{
@@ -23,20 +42,55 @@
     align-items: flex-end;
 }
 .posts {
-    color: black;
-    height: 30px;
-    width: 75%;
-    /* box-sizing: inherit; */
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    /* vertical-align: baseline; */
+    height: 600px;
+    width: 900px;
+    /* border: solid red; */
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    box-shadow: 0 1px 15px 0 rgba(0,0,0,.1),0 1px 9px 0 rgba(0,0,0,.2);
-    border-radius: 20px;
-    /* border: solid rgb(241, 19, 19); */
-    padding: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
 }
+.individual-posts {
+    /* border: solid green; */
+    box-shadow: 0 1px 15px 0 rgba(0,0,0,.1),0 1px 9px 0 rgba(0,0,0,.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 10pt;
+    height: 40px;
+    width: 350px;
+    padding: 5px;
+    text-decoration: none;
+    transition: transform.5s;
+}
+
+.individual-posts:hover {
+    transform: scale(1.1);
+}
+
+.post-box {
+    /* border: solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.post-box > button {
+    width: 40px;
+}
+
+
+/* box-sizing: inherit;
+margin: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+box-shadow: 0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.2);
+border-radius: 2px;
+background-color: #fff;
+padding: 20px; */
