@@ -10,9 +10,17 @@ export default class Post extends Component {
         this.state = {
             title: '',
             message: '',
+            edit: false
 
         }
     }
+    // clearState = () => {
+    //     this.setState({
+    //         title: '',
+    //         message:'',
+    //         edit: false
+    //     })
+    // }
 
 
     handleChange = (e, key) => {
@@ -21,12 +29,22 @@ export default class Post extends Component {
         })
     }
 
-    addPost = async () => {
+    addPost = () => {
          let {title, message} = this.state
-         await axios.post(`/api/post/new`, {title, message, resort_id: this.props.match.params.resortId})
-         this.props.history.push(`/dashboard/${this.props.match.params.resortId}`)
-         
+          axios.post(`/api/post/new`, {title, message, resort_id: this.props.match.params.resortId}).then(() => {
+              this.props.history.push(`/dashboard/${this.props.match.params.resortId}`)
+          })
     }
+
+    // editPost = async () => {
+    //     let edit = {
+    //         title: this.state.title,
+    //         message: this.state.message,
+    //     }
+    //     axios.put(`/api/posts/${this.props.id}`, edit).then(() => {
+    //         this.clearState()
+    //     })
+    // }
 
     render() {
         return (

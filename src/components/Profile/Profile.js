@@ -21,9 +21,21 @@ class Profile extends Component {
         let update = {
             profile_pic: this.state.profile_pic
         }
-        axios.put(`/api/update/${this.props.user.userId}`, update)
+        axios.put(`/api/update/${this.props.user.profile_pic}`, update)
         .then(res => {this.setState({profile_pic: res.data})
-    })
+        })
+    }
+    clearState = () => {
+        this.setState({
+            profile_pic: '',
+            edit: false
+        })
+    }
+
+    addGroup = () => {
+        axios.post('/api/groups').then(res => {
+            this.setState({favResorts: res.data})
+        }).catch(err => (`Resort couldn't be added`))
     }
 
     render() {
@@ -34,29 +46,21 @@ class Profile extends Component {
                         <h1>Rider Info:</h1>
                         <h2>Name: {this.props.user && this.props.user.name}</h2>
                         <h2>Email: {this.props.user && this.props.user.email}</h2>
-                        {/* <h4>Fav resorts:</h4>
-                            <li></li> */}
                     </div>
                     <div className="profile-pic">
                         <img
                         src={this.props.user && this.props.user.profile_pic} 
                         alt=""/>
-                            <button className="buttons" onClick={this.edit}>Edit</button>
-                            <button className="buttons">Cancel</button>
                         <div className="profile-pic-buttons">
+                            <button className="buttons" onClick={this.edit}>Edit</button>
+                            <button className="buttons" onClick={this.clearState}>Cancel</button>
                         </div>
                     </div>
-                    {/* <div className="edit-buttons">
-                        <div className="rider-info-buttons">
-                            <button className="buttons">Edit</button>
-                            <button className="buttons">Cancel</button>
-                        </div>
-                    </div> */}
                 </div>
                 <div className="my-groups">
                     <h3>My Groups</h3>
                 <div className="groups-list">[ ]</div>
-                </div>
+            </div>
                 
                 <Nav />
             </div>

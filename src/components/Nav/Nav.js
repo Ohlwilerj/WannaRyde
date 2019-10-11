@@ -5,6 +5,7 @@ import './nav.css'
 import axios from 'axios'
 import swal from 'sweetalert2'
 import {updateUser} from '../../ducks/reducer'
+import { Grid } from 'react-feather'
 
 class Nav extends Component {
     
@@ -12,7 +13,7 @@ class Nav extends Component {
     async logout() {
         const res = await axios.delete('/auth/logout')
         this.props.updateUser(null)
-        swal.fire(res.data.message)
+        swal.fire({text: res.data.message,type: 'success', timer: 1800})
     }
     render() {
         // console.log(this.props)
@@ -26,9 +27,7 @@ class Nav extends Component {
                     </Link>
                     <Link to="/resorts">
                         <div className="groups-link">
-                            <i className="fas fa-users">
-                                {/* <h4 className="groups">Groups</h4> */}
-                            </i>
+                            <Grid size='50'></Grid>
                         </div>
                     </Link>
                     <Link className="link" to="/">

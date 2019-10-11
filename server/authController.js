@@ -13,10 +13,10 @@ module.exports = {
         const hash = bcrypt.hashSync(regPassword2, salt)
         // Add the new user in the DB
         const newUser = await db.add_user(
-        {firstName, lastName, email, profile_pic, regPassword2, hash}).catch(err => {
+        {firstName, lastName, email, profile_pic, hash, regPassword2}).catch(err => {
+            console.log(newUser)
             return res.status(503)
         })
-        // console.log(newUser)
         // Store new user on session
         req.session.user = {
             name: firstName + ' ' + lastName,

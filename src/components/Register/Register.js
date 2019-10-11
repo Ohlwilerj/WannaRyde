@@ -30,7 +30,7 @@ class Register extends Component {
         if(regPassword1 === regPassword2) {
             const res = await axios.post('/auth/register', {email, regPassword2, firstName,lastName, profile_pic})
             this.props.updateUser(res.data.user, res.data.loggedIn)
-            swal.fire({type: 'You did it', text: res.data.message})
+            swal.fire({type: 'success', text: res.data.message, timer: 1500 })
             this.props.history.push('/profile')
         } else {
             swal.fire({type: 'error', text: `Passwords don't match homie`})
@@ -43,10 +43,10 @@ class Register extends Component {
         // console.log(res.data)
         if(res.data.user) {
             this.props.updateUser(res.data.user, res.data.loggedIn)
-            swal.fire(res.data.message)
+            swal.fire({text:res.data.message, type: 'success', timer: 2000})
             this.props.history.push('/profile')
         } else {
-            swal.fire(res.data.message)
+            swal.fire(res.data.message, '', 'success')
         }
     }
 

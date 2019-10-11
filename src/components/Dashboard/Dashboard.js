@@ -14,17 +14,30 @@ export default class Dashboard extends Component {
     }
 
     componentDidMount() {
+        this.getPosts()
+    }
+
+    deletePost = (id, resortId) => {
+        axios.delete(`/api/delete/${id}`, resortId).then(() => {
+            this.getPosts()
+        }).catch(error => {console.log('Error in Dashboard', error)
+    })
+    }
+
+    getPosts = () => {
         axios.get(`/api/posts/${this.props.match.params.resortId}`).then(res => {
+            // console.log('asdkfalsdk')
             this.setState({posts: res.data})
         })
     }
 
-    deletePost = () => {
-        let {postId} = this.props
-        axios.delete(`/api/posts/${postId}`).then(() => {
-            window.location.reload()
-        })
-    }
+    // addGroup = () => {
+    //     axios.post('/api/groups').then(res => {
+    //         this.
+    //     })
+    // }
+
+
 
 
 
@@ -34,15 +47,23 @@ export default class Dashboard extends Component {
             console.log(el)
             return (
                 <div className="delete-button">
-
                         <div className="post-box">
-                                <Link key={el.id} to={`/chatroom/${el.id}`}>
+                                <Link key={el.id} to={`/chatroom/${el.post_id}`}>
                                     <div className="individual-posts">
                                         <h2>{el.title}</h2>
                                         <p>{el.name}</p>
+                                        <div className="post-profile-pic" style={{
+                                                backgroundImage:`url(${el.profile_pic})`,
+                                                backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                backgroundRepeat: 'no-repeat',
+                                                width: '100px',
+                                                height: '100px',
+                                                borderRadius: '15px'
+                                                }}></div>
                                     </div>
                                 </Link>
-                            <button className="buttons" onClick={this.deletePost}>X</button>
+                            <button className="buttons" onClick={() => this.deletePost(el.post_id)}>X</button>
                         </div>
                 </div>
             )
