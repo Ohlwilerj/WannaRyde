@@ -1,3 +1,4 @@
 UPDATE riders
-SET profile_pic = $2
+SET profile_pic = ${profile_pic}
 WHERE id = $1;
+RETURNING *

@@ -3,7 +3,7 @@ import Nav from './../Nav/Nav'
 import {Link} from 'react-router-dom'
 import './dashboard.css'
 import axios from 'axios';
-import Collapsible from 'react-collapsible'
+// import Collapsible from 'react-collapsible'
 
 export default class Dashboard extends Component {
     constructor(){

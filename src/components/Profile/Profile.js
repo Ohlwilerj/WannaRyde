@@ -44,13 +44,11 @@ class Profile extends Component {
                 <div className="top-container">
                     <div className="rider-info">
                         <h1>Rider Info:</h1>
-                        <h2>Name: {this.props.user && this.props.user.name}</h2>
-                        <h2>Email: {this.props.user && this.props.user.email}</h2>
+                        <h3>Name: {this.props.user && this.props.user.name}</h3>
+                        <h3>Email: {this.props.user && this.props.user.email}</h3>
                     </div>
                     <div className="profile-pic">
-                        <img
-                        src={this.props.user && this.props.user.profile_pic} 
-                        alt=""/>
+                        <img src={this.props.user && this.props.user.profile_pic} alt=""/>
                         <div className="profile-pic-buttons">
                             <button className="buttons" onClick={this.edit}>Edit</button>
                             <button className="buttons" onClick={this.clearState}>Cancel</button>
@@ -59,9 +57,10 @@ class Profile extends Component {
                 </div>
                 <div className="my-groups">
                     <h3>My Groups</h3>
-                <div className="groups-list">[ ]</div>
-            </div>
-                
+                    <div className="groups-list">
+                    [ ]
+                    </div>
+                </div>
                 <Nav />
             </div>
         )
