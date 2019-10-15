@@ -26,7 +26,7 @@ export default class Dashboard extends Component {
 
     getPosts = () => {
         axios.get(`/api/posts/${this.props.match.params.resortId}`).then(res => {
-            // console.log('asdkfalsdk')
+            console.log(this.props)
             this.setState({posts: res.data})
         })
     }
@@ -48,7 +48,7 @@ export default class Dashboard extends Component {
             return (
                 <div className="delete-button">
                         <div className="post-box">
-                                <Link key={el.id} to={`/chatroom/${el.post_id}`}>
+                                <Link className='link-decoration' key={el.id} to={`/chatroom/${el.post_id}`}>
                                     <div className="individual-posts">
                                         <h2>{el.title}</h2>
                                         <p>{el.name}</p>
@@ -72,7 +72,7 @@ export default class Dashboard extends Component {
             <div className="dashboard-parent">
                 <div className="sub-dashboard">
                     <div className="posts-container">
-                        <i className="fas fa-plus"></i>
+                        {/* <i className="fas fa-plus"></i> */}
                             <div className="posts">
                                 {posts}
                             </div>
@@ -83,7 +83,7 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                <Nav />
+                {/* <Nav /> */}
             </div>
         )
     }

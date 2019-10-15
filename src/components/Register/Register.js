@@ -46,7 +46,7 @@ class Register extends Component {
             swal.fire({text:res.data.message, type: 'success', timer: 2000})
             this.props.history.push('/profile')
         } else {
-            swal.fire(res.data.message, '', 'success')
+            swal.fire(res.data.message, '', 'error')
         }
     }
 
@@ -54,6 +54,8 @@ class Register extends Component {
     render() {
         return (
                 <div className="register-parent">
+                    <div className="everything">
+
                     <h1>Letz Ryde</h1>
                     <div className="register-form">
                         <div className="login-box">
@@ -82,6 +84,7 @@ class Register extends Component {
                         </div>
 
 
+                    </div>
                     </div>
                 
                 </div>

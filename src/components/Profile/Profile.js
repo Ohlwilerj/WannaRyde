@@ -39,6 +39,7 @@ class Profile extends Component {
     }
 
     render() {
+        console.log(this.state)
         return (
             <div className="parent-container">
                 <div className="top-container">
@@ -56,12 +57,12 @@ class Profile extends Component {
                     </div>
                 </div>
                 <div className="my-groups">
-                    <h3>My Groups</h3>
+                    {/* <h3>My Groups</h3> */}
                     <div className="groups-list">
-                    [ ]
+                    {/* [ ] */}
                     </div>
                 </div>
-                <Nav />
+                {/* <Nav /> */}
             </div>
         )
     }

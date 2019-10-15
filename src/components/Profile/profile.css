@@ -4,19 +4,19 @@
     background: -moz-linear-gradient(-45deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
     background: -webkit-linear-gradient(-45deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
     background: linear-gradient(135deg, #B61838 0%, #1d8de9 40%, #1d8de9 100%);
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
-    padding-left: 100px;
-    padding-top: 70px;
+    /* padding-left: 100px;
+    padding-top: 70px; */
     display: flex;
     justify-content: flex-start;
     align-content: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .top-container {
     /* border: solid yellow; */
-    width: 100%vw;
+    width: 90vw;
     height: 50vh;
     display: flex;
     flex-wrap: wrap;
@@ -25,11 +25,13 @@
 .rider-info {
     /* border: solid teal; */
     height: 450px;
-    width: 700px;
+    width: 30vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
-    padding-left: 40px;
-    padding-top: 70px;
+    /* padding-left: 40px;
+    padding-top: 70px; */
     align-items: flex-start;
     flex-direction: column;
 
@@ -39,12 +41,13 @@
     flex-direction: column; */
     /* padding-top: 20px; */
     /* border: solid orange; */
+    max-width: 50vw;
     max-height: 450px;
-    width: 700px;
+    margin-top: 10px;
     box-sizing: border-box;
 }
 .profile-pic > img {
-    max-width: 700px;
+    max-width: 50vw;
     max-height: 450px;
 
 }

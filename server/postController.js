@@ -8,11 +8,11 @@ module.exports = {
     async addPost(req, res) {
         const db = req.app.get('db')
         const {userId} = req.session.user
-        // console.log(userId)
+        console.log(userId)
         const {title, message, resort_id} = req.body
-        // console.log(req.body)
+        console.log(req.body)
          await db.add_post([title, message, userId, resort_id])
-        .then(res => {res.sendStatus(200)}).catch(err => {
+        .then(res => {res.Status(200)}).catch(err => {
         })
     },
     async getOnePost(req, res) {

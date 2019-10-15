@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Nav from './../Nav/Nav'
 import axios from 'axios';
 import './chatroom.css'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import io from 'socket.io-client'
 
-export default class Chatroom extends Component {
+class Chatroom extends Component {
     constructor() {
         super()
         this.state = {
@@ -55,8 +55,9 @@ export default class Chatroom extends Component {
             `blast to room socket`,
             {
                 message: this.state.inputMessage,
-                profile_pic: this.state.profile_pic,
+                profile_pic: this.props.user.profile_pic,
                 room: this.props.match.params.postId 
+                
             }
         )
     }
@@ -70,14 +71,17 @@ export default class Chatroom extends Component {
 
     render() {
         const messages = this.state.messages.map((message, i) => (
+            
             <div
                 key={i}
-                className={message.profile_pic === this.state.profile_pic ? 'bubble me' : 'bubble them'}>
-                    {/* <img src={message.profile_pic} alt=""/> */}
+                className={message.profile_pic === this.props.user.profile_pic ? 'bubble mine' : 'bubble them'}>
+                    <img src={message.profile_pic} alt=""/>
                     <p>{message.message}</p>
                 </div>
         ))
+        console.log(this.state)
         return (
+            
             <div className="main-chat-box">
                 <div className="single-post">
                     <div className="content-box">
@@ -92,7 +96,9 @@ export default class Chatroom extends Component {
                             backgroundRepeat: 'no-repeat',
                             width: '100px',
                             height: '100px',
-                            borderRadius: '15px'
+                            borderRadius: '15px',
+                            paddingTop: '6px',
+                            
                         }}></div>   
                 </div>
                 <div className="chat-box">
@@ -113,8 +119,15 @@ export default class Chatroom extends Component {
 
                         </div>
                 </div>
-                <Nav />
+                {/* <Nav /> */}
             </div>
         )
     }
 }
+
+function mapStateToProps(reduxState) {
+    const {user} = reduxState
+    return {user}
+}
+
+export default connect(mapStateToProps)(Chatroom)

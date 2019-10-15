@@ -27,7 +27,7 @@ class Nav extends Component {
                     </Link>
                     <Link to="/resorts">
                         <div className="groups-link">
-                            <Grid size='50'></Grid>
+                            <Grid size='60'></Grid>
                         </div>
                     </Link>
                     <Link className="link" to="/">

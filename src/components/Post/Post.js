@@ -73,7 +73,7 @@ export default class Post extends Component {
                     </div>
                 </div>
                 </div>
-                <Nav />
+                {/* <Nav /> */}
             </div>
         )
     }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Yatra+One&display=swap');
 
 .resort-main {
+  width: 90vw;
   background: #1d8de9;
   background: -moz-linear-gradient(-45deg, #B61838 0%, #1d8de9 30%, #B61838 100%);
   background: -webkit-linear-gradient(-45deg, #B61838 0%, #1d8de9 30%, #B61838 100%);
