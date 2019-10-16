@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import Nav from './../Nav/Nav'
 import {Link} from 'react-router-dom'
-import './dashboard.css'
+import './dashboard.scss'
 import axios from 'axios';
 // import Collapsible from 'react-collapsible'
 
@@ -83,7 +82,6 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
-                {/* <Nav /> */}
             </div>
         )
     }

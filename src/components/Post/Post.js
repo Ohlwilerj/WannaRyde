@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import Nav from './../Nav/Nav'
 import axios from 'axios';
-import './post.css'
+import './post.scss'
 import {Link} from 'react-router-dom'
 
 export default class Post extends Component {
@@ -64,7 +63,7 @@ export default class Post extends Component {
                         <textarea className="message-input" 
                         value={this.state.message} 
                         onChange={e => this.handleChange(e, 'message')} 
-                        cols="80" rows="15" placeholder="Message" type="text"/>
+                        cols="30" rows="15" placeholder="Message" type="text"/>
                     </div>
                     <div className="submit-button">
                         <Link to={`/dashboard/${this.props.match.params.resortId}`}>
@@ -73,7 +72,6 @@ export default class Post extends Component {
                     </div>
                 </div>
                 </div>
-                {/* <Nav /> */}
             </div>
         )
     }

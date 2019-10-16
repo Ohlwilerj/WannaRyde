@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .dashboard-parent {
     width: 90vw;
     background: #B61838;
@@ -10,16 +12,17 @@
 }
 
 .sub-dashboard {
-    margin: 0;
+    /* margin: 0; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    width: 100vw;
+    height: auto;
+    width: 90vw;
     /* border: solid black; */
 
 }
 .posts-container {
+    font-family: $yatra;
     background: white;
     height: auto;
     width: 70vw;

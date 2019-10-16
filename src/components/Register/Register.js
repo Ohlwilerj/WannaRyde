@@ -3,7 +3,7 @@ import swal from 'sweetalert2'
 import axios from 'axios'
 import {updateUser} from '../../ducks/reducer'
 import {connect} from 'react-redux'
-import './register.css'
+import './register.scss'
 
 class Register extends Component {
     constructor() {

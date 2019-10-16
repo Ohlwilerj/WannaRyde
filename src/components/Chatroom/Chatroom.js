@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import './chatroom.css'
+import './chatroom.scss'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import io from 'socket.io-client'
+// import Nav from '../Nav/Nav'
 
 class Chatroom extends Component {
     constructor() {
@@ -34,8 +35,9 @@ class Chatroom extends Component {
 
     handleChange = (e,key) => {
         this.setState({
-            [key]: e.target.value
+            [key]: e.target.value,
         })
+        
     }
 
     getOnePost = () => {
@@ -60,6 +62,9 @@ class Chatroom extends Component {
                 
             }
         )
+        this.setState ({
+            inputMessage: ''
+        })
     }
 
     updateMessages = data => {
@@ -75,7 +80,7 @@ class Chatroom extends Component {
             <div
                 key={i}
                 className={message.profile_pic === this.props.user.profile_pic ? 'bubble mine' : 'bubble them'}>
-                    <img src={message.profile_pic} alt=""/>
+                    {/* <img src={message.profile_pic} alt=""/> */}
                     <p>{message.message}</p>
                 </div>
         ))
@@ -118,8 +123,8 @@ class Chatroom extends Component {
                         </Link>
 
                         </div>
+                        {/* <Nav /> */}
                 </div>
-                {/* <Nav /> */}
             </div>
         )
     }

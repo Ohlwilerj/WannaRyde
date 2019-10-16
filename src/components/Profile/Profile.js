@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Nav from './../Nav/Nav'
-import './profile.css'
+import './profile.scss'
 import {connect} from 'react-redux'
 import {updateUser} from './../../ducks/reducer'
 import axios from 'axios'
@@ -42,6 +41,7 @@ class Profile extends Component {
         console.log(this.state)
         return (
             <div className="parent-container">
+                {/* <Nav /> */}
                 <div className="top-container">
                     <div className="rider-info">
                         <h1>Rider Info:</h1>
@@ -62,7 +62,6 @@ class Profile extends Component {
                     {/* [ ] */}
                     </div>
                 </div>
-                {/* <Nav /> */}
             </div>
         )
     }

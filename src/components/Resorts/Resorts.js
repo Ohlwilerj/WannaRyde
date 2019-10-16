@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Nav from './../Nav/Nav'
+// import Nav from './../Nav/Nav'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import './resorts.css'
+import './resorts.scss'
 
 export default class Resorts extends Component {
     constructor() {
@@ -30,13 +30,13 @@ export default class Resorts extends Component {
         ))
         return (
             <div className="resort-main">
+                {/* <Nav /> */}
                 <div className="resort-header">
                     <h1>Resort Groups</h1>
                 </div>
                 <div className="resort-list">
                     {resortList}
                 </div>
-                {/* <Nav /> */}
             </div>
         )
     }
