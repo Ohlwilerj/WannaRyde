@@ -43,6 +43,7 @@ app.get('/api/posts/:id', postCtrl.getPosts)
 app.post('/api/post/new', postCtrl.addPost)
 app.delete('/api/delete/:id', postCtrl.delete)
 app.get('/api/post/:id', postCtrl.getOnePost)
+app.put('api/update/:id', postCtrl.editPost)
 
 
 const server = app.listen(SERVER_PORT, () => console.log(`Bring ${SERVER_PORT} people to help with my personal project`))

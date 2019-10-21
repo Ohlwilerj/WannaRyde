@@ -30,5 +30,18 @@ module.exports = {
         // console.log('sdfasd')
         res.status(200).send(deletePost)
         
+    },
+
+    async editPost(req, res) {
+        const db = req.app.get('db')
+        let {title, message} = req.body
+        let {id} = req.params
+        db.edit_post(id, title, message)
+        .then(result => {
+            res.sendStatus(200)
+        }).catch(err => {
+            console.log(`error: ${err}`)
+            res.status(500).send('Error updating')
+        })
     }
 }

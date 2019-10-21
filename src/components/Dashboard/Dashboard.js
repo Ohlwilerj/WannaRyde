@@ -8,7 +8,10 @@ export default class Dashboard extends Component {
     constructor(){
         super()
         this.state = {
-            posts: []
+            posts: [],
+            edit: false,
+            title: '',
+            message: '', 
         }
     }
 
@@ -35,6 +38,23 @@ export default class Dashboard extends Component {
     //         this.
     //     })
     // }
+
+    editPost = () => {
+        let update = {
+            title: this.state.title,
+            price: this.state.message,
+        }
+        axios.put(`/api/products/${this.props.post_id}`, update).then(() => {
+            this.clearState()
+        })
+    }
+
+    clearState = () => {
+        this.setState({
+            title: '',
+            message: ''
+        })
+    }
 
 
 
