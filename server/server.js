@@ -20,6 +20,9 @@ app.use(session({
     secret: SESSION_SECRET
 }))
 
+// TOP LEVEL MIDDLEWARE
+app.use( express.static( `${__dirname}/../build` ) );
+
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
