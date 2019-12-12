@@ -7,14 +7,14 @@ module.exports = {
         // Checking to see if user already is registered
         // console.log(req.body)
         const user = await db.find_email(email)
-        if (user[0]) return res.status(200).send({message: 'User another email bro'}) 
+        if (user[0]) return res.status(200).send({message: 'Use another email bro'}) 
         // if not, salt and hash password
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(regPassword2, salt)
         // Add the new user in the DB
         const newUser = await db.add_user(
         {firstName, lastName, email, profile_pic, hash, regPassword2}).catch(err => {
-            console.log(newUser)
+            // console.log(newUser)
             return res.status(503)
         })
         // Store new user on session
@@ -51,10 +51,17 @@ module.exports = {
     async editProfilePic(req,res) {
         const db = req.app.get('db')
         let profile_pic = req.session
-        console.log(profile_pic)
+        // console.log(profile_pic)
         // let userId = req.params
         const newPic = await db.update_pic(profile_pic)
-        console.log(profile_pic)
+        // console.log(profile_pic)
         res.status(200).send(newPic)
     },
+    
+    async getMyGroups(req, res) {
+        const db = req.app.get('db')
+        let userId = req.session
+        const myGroups = await db.get_my_groups()
+        res.status(200).send(myGroups)
+    }
 }

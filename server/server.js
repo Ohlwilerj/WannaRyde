@@ -37,6 +37,7 @@ app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
 app.delete('/auth/logout', authCtrl.logout)
 app.put('/api/update/:id', authCtrl.editProfilePic)
+// app.get('/api/groups', authCtrl.getMyGroups)
 
 // RESORTS ENDPOINT
 app.get('/api/resorts', resCtrl.getResorts)

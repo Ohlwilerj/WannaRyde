@@ -15,7 +15,38 @@ class Profile extends Component {
             edit: false,
         }
     }
+        // componentDidMount {
 
+        // }
+    
+        // componentDidUpdate(oldProps) {
+        //     if(oldProps !== this.props) {
+        //         if(this.props.user.profile_pic !== 0) {
+        //             this.setState({
+        //                 edit:true
+        //             })
+        //         }
+        //     }
+        //         let {profile_pic} = this.props.user
+        //         this.setState({
+        //             profile_pic: profile_pic
+        //         })
+        //     }
+        // }
+    
+
+
+
+
+    toggle = () => {
+        this.setState(prevState => ({toggleRename: !prevState.toggleRename}))
+    }
+
+    handleChange = (e,key) => {
+        this.setState({
+            [key]:e.target.value
+        })
+    }
     edit = () => {
         let update = {
             profile_pic: this.state.profile_pic
@@ -31,17 +62,16 @@ class Profile extends Component {
         })
     }
 
-    addGroup = () => {
+    myResorts = () => {
         axios.post('/api/groups').then(res => {
             this.setState({favResorts: res.data})
         }).catch(err => (`Resort couldn't be added`))
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className="parent-container">
-                {/* <Nav /> */}
                 <div className="top-container">
                     <div className="rider-info">
                         <h1>Rider Info:</h1>
@@ -57,15 +87,15 @@ class Profile extends Component {
                     </div>
                 </div>
                 <div className="my-groups">
-                    {/* <h3>My Groups</h3> */}
                     <div className="groups-list">
-                    {/* [ ] */}
+                        <h2>{this.state.favResorts}</h2>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
 function mapStateToProps (reduxState) {
     const{user} = reduxState
     return {user}

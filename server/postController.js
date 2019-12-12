@@ -27,7 +27,6 @@ module.exports = {
         const db = req.app.get('db')
         let {id} = req.params
         const deletePost = db.delete_post([id])
-        // console.log('sdfasd')
         res.status(200).send(deletePost)
         
     },
